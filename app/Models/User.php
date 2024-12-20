@@ -45,4 +45,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function hasPermission(string $permission): bool
+    {
+        return $this->role->permissions->contains('name', $permission);
+    }
+
+    public function roles(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Role::class);
+    }
 }

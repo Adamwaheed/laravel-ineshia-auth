@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import {ref} from "vue";
+
+const props = defineProps<{
+    name: string
+}>();
+
 </script>
 
 <template>
@@ -13,6 +19,8 @@ import { Head } from '@inertiajs/vue3';
             >
                 Dashboard
             </h2>
+            <h1 style="color: white">{{props.name}}</h1>
+            <input v-model="props.name">
         </template>
 
         <div class="py-12">
